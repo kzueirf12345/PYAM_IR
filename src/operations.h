@@ -1,5 +1,5 @@
-#ifndef PYAM_IR_OPERATIONS_H
-#define PYAM_IR_OPERATIONS_H
+#ifndef PYAM_IR_SRC_OPERATIONS_H
+#define PYAM_IR_SRC_OPERATIONS_H
 
 enum IrOperandType
 {
@@ -34,6 +34,8 @@ enum IrOpType
     IR_OP_TYPE_POW_ASSIGNMENT   = 18, 
 };
 
+const char* ir_op_type_to_str(const enum IrOpType type);
+
 #define IR_OPERATION_HANDLE(num_, name_, surname_, assign_, label_, op_, oper1_, oper2_, ...) \
         IR_OP_BLOCK_TYPE_##surname_ = num_,
 
@@ -44,4 +46,4 @@ enum IrOpBlockType
 
 #undef IR_OPERATION_HANDLE
 
-#endif /*PYAM_IR_OPERATIONS_H*/
+#endif /*PYAM_IR_SRC_OPERATIONS_H*/

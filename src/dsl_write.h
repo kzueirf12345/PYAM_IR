@@ -1,5 +1,5 @@
-#ifndef PYAM_IR_DSL_WRITE_H
-#define PYAM_IR_DSL_WRITE_H
+#ifndef PYAM_IR_SRC_DSL_WRITE_H
+#define PYAM_IR_SRC_DSL_WRITE_H
 
 #include <stdio.h>
 
@@ -32,7 +32,6 @@
             out,                                                                                    \
             "GIPSY(32_var%ld, 14_arg%zu)\t# take arg\n",                                            \
             assign_num_,                                                                            \
-            OP_TYPE_ARGS_COMMA,                                                                     \
             arg_num_                                                                                \
         )
         
@@ -44,7 +43,7 @@
             op_type_,                                                                               \
             operand1_,                                                                              \
             operand2_,                                                                              \
-            op_type_to_str(op_type_)                                                                \
+            ir_op_type_to_str(op_type_)                                                             \
         )
 
 #define IR_ASSIGN_VAR_(assign_var_, op_type_, operand1_)                                            \
@@ -54,13 +53,13 @@
             assign_var_,                                                                            \
             op_type_,                                                                               \
             operand1_,                                                                              \
-            op_type_to_str(op_type_)                                                                \
+            ir_op_type_to_str(op_type_)                                                             \
         )
 
 #define IR_COND_JMP_(label_num_, cond_res_)                                                         \
         fprintf(                                                                                    \
             out,                                                                                    \
-            "ENTER(label%zu, 88_tmp%zu)\t# cond jmp %s\n",                                          \
+            "ENTER(label%zu, 88_tmp%zu)\t# cond jmp\n",                                             \
             label_num_,                                                                             \
             cond_res_                                                                               \
         )
@@ -118,4 +117,4 @@
             ret_val_                                                                                \
         )
 
-#endif /*PYAM_IR_DSL_WRITE_H*/
+#endif /*PYAM_IR_SRC_DSL_WRITE_H*/
