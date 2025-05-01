@@ -29,3 +29,4 @@ const char* ir_op_type_to_str(const enum IrOpType type)
     }
     return "UNKNOWN_IR_OP_TYPE";
 }
+#undef CASE_ENUM_TO_STRING_

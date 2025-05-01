@@ -34,7 +34,7 @@
             assign_num_,                                                                            \
             arg_num_                                                                                \
         )
-        
+
 #define IR_ASSIGN_(assign_num_, op_type_, operand1_, operand2_)                                     \
         fprintf(                                                                                    \
             out,                                                                                    \
