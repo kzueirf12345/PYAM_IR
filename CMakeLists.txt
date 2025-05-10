@@ -1,21 +1,21 @@
-add_library (PYAM_IR_lib
+add_library (pyam_ir
     STATIC
 
     src/operations.c
 )
 
-target_include_directories(PYAM_IR_lib
+target_include_directories(pyam_ir
     PUBLIC
         .
         ./src
 )
 
-target_compile_features (PYAM_IR_lib
+target_compile_features (pyam_ir
     PRIVATE
         cxx_std_17
 )
 
-target_compile_options (PYAM_IR_lib
+target_compile_options (pyam_ir
     PRIVATE
         -fdiagnostics-color=always
 
@@ -43,7 +43,7 @@ target_compile_options (PYAM_IR_lib
         >
 )
 
-target_link_options (PYAM_IR_lib
+target_link_options (pyam_ir
     PRIVATE
         -march=native
 
