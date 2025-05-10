@@ -119,7 +119,7 @@
 #define IR_IMPLEMENT_MAIN_()                                                                        \
         fprintf(                                                                                    \
             ir_file,                                                                                \
-            "\n%s(main, 0)\t# implement main\n"                                                     \
+            "\n%s(main, 0)\t# implement main\n",                                                    \
             kIRCallKeyWord                                                                          \
         )
 
