@@ -120,7 +120,7 @@
         fprintf(                                                                                    \
             ir_file,                                                                                \
             "\n%s(main, 0)\t# implement main\n"                                                     \
-            kIRCallKeyWord,                                                                         \
+            kIRCallKeyWord                                                                          \
         )
 
 #define IR_RET_(ret_val_)                                                                           \
