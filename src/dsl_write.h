@@ -56,11 +56,10 @@
 #define IR_ASSIGN_VAR_(assign_var_, operand1_)                                                      \
         fprintf(                                                                                    \
             ir_file,                                                                                \
-            "\t%s(32_var%ld, 88_tmp%zu)\t# %s\n",                                                   \
+            "\t%s(32_var%ld, 88_tmp%zu)\t# Put result to the variable\n",                           \
             kIRAssignKeyWord,                                                                       \
             assign_var_,                                                                            \
-            operand1_,                                                                              \
-            ir_op_type_to_str(op_type_)                                                             \
+            operand1_                                                                               \
         )
 
 #define IR_COND_JMP_(label_num_, cond_res_, comment)                                                \
@@ -136,7 +135,7 @@
         fprintf(                                                                                    \
             ir_file,                                                                                \
             "%s(88_tmp%zu, %d, 88_tmp%zu)\t# Syscall \"%s\"\n",                                     \
-            kSystemKeyWord,                                                                         \
+            kIRSystemKeyWord,                                                                       \
             assign_val_,                                                                            \
             op_type_,                                                                               \
             operand1_,                                                                              \
