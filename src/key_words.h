@@ -36,9 +36,9 @@ const size_t kIR_SYS_CALL_NAME_MAX = 16;
 
 enum IR_SysCall_Indexes
 {
-    HLT_INDEX = 0   ,
-    IN_INDEX        ,
-    OUT_INDEX       ,
+    SYSCALL_HLT_INDEX = 0   ,
+    SYSCALL_IN_INDEX        ,
+    SYSCALL_OUT_INDEX       ,
     INVALID_SYSCALL = -1
 };
 
