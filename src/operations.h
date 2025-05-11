@@ -25,13 +25,6 @@ enum IrOpType
     IR_OP_TYPE_LESSEQ           = 9,
     IR_OP_TYPE_GREAT            = 10,
     IR_OP_TYPE_GREATEQ          = 11,
-    IR_OP_TYPE_DECL_ASSIGNMENT  = 12,
-    IR_OP_TYPE_ASSIGNMENT       = 13,
-    IR_OP_TYPE_SUM_ASSIGNMENT   = 14,
-    IR_OP_TYPE_SUB_ASSIGNMENT   = 15,
-    IR_OP_TYPE_MUL_ASSIGNMENT   = 16,
-    IR_OP_TYPE_DIV_ASSIGNMENT   = 17,
-    IR_OP_TYPE_POW_ASSIGNMENT   = 18,
 };
 
 enum IrOpBlockType
