@@ -1,14 +1,36 @@
 #ifndef PYAM_IR_SRC_KEY_WORDS_H
 #define PYAM_IR_SRC_KEY_WORDS_H
 
-const char* const kIRAssignKeyWord = "GYPSI";
-const char* const kIRLabelKeyWord  = "FIFT";
-const char* const kIRSystemKeyWord = "SYSTEM";
-const char* const kIRJumpKeyWord   = "ENTER";
-const char* const kIRFuncKeyWord   = "PENIS";
-const char* const kIRCallKeyWord   = "CALL_PENIS";
-const char* const kIRRetKeyWord    = "KILL_PENIS";
+#include <stdlib.h>
+
+const size_t kIR_KEY_WORD_NUMBER = 8;
+const size_t kIR_KEY_WORD_NAME_MAX = 16;
+
+enum IR_KeyWord_Indexes
+{
+    FUNCTION_CALL_INDEX = 0   ,
+    FUNCTION_BODY_INDEX       ,
+    CONDITIONAL_JUMP_INDEX    ,
+    ASSIGNMENT_INDEX          ,
+    OPERATION_INDEX           ,
+    LABEL_INDEX               ,
+    RETURN_INDEX              ,
+    SYSTEM_FUNCTION_CALL_INDEX,
+}; 
+
+const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX]=
+{
+    {"RingRing"},
+    {"Gyat"},
+    {"Frog"},
+    {"Gnoming"},
+    {"Digging"},
+    {"Viperr"},
+    {"Cherepovec"},
+    {"Bobb"}
+};
 
 /*Если кто-то меняет этот файл, то слеудет произвести изменения и в файле с описанием IR'а - codegen.h*/
+// Никакого кодгена больше нет, в данном случае он был лишним + бесполезным + портил читаемость
 
 #endif /*PYAM_IR_SRC_KEY_WORDS_H*/
