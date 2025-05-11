@@ -3,9 +3,23 @@
 
 #include <stdio.h>
 
+#include "operations.h"
 #include "key_words.h"
 
-#define IR_GIVE_ARG_(temp_variable_index, operand1_)                                                \
+#define IR_OPERATION_(return_value_, op_type_, operand1_, operand2_)                                \
+        fprintf(                                                                                    \
+            IR_file,                                                                                \
+            "\t%s(88_tmp%zu, %d, 88_tmp%zu, 88_tmp%zu)\t# %s\n"                                     \
+            kIR_KEY_WORD_ARRAY[OPERATION_INDEX],                                                    \
+            return_value_,                                                                          \
+            op_type_,                                                                               \
+            operand1_,                                                                              \
+            operand2_,                                                                              \
+            ir_op_type_to_str(op_type_)                                                             \
+        )
+
+
+#define IR_GIVE_ARG_(arg_num, temp_variable_index)                                                  \
         fprintf(                                                                                    \
             IR_file,                                                                                \
             "\t%s(14_arg%zu, 88_tmp%zu)\n",                                                         \
@@ -62,7 +76,7 @@
 #define IR_COND_JMP_(label_num_, cond_res_, comment)                                                \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "%s(label%zu, 88_tmp%zu)\t# " comment "\n",                                             \
+            "\t%s(label%zu, 88_tmp%zu)\t# " comment "\n",                                             \
             kIRJumpKeyWord,                                                                         \
             label_num_,                                                                             \
             cond_res_                                                                               \
@@ -71,7 +85,7 @@
 #define IR_JMP_(label_num_, comment)                                                                \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "%s(label%zu, 1)\t# " comment "\n",                                                     \
+            "\t%s(label%zu, 1)\t# " comment "\n",                                                     \
             kIR_KEY_WORD_ARRAY[CONDITIONAL_JUMP_INDEX],                                             \
             label_num_                                                                              \
         )
@@ -79,7 +93,7 @@
 #define IR_LABEL_(label_num_, comment)                                                              \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "%s(label%zu)\t# " comment "\n",                                                        \
+            "\t%s(label%zu)\t# " comment "\n",                                                        \
             kIR_KEY_WORD_ARRAY[LABEL_INDEX],                                                        \
             label_num_                                                                              \
         )
@@ -123,7 +137,7 @@
 #define IR_RET_(return_value_, comment)                                                             \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "%s(88_tmp%zu)" comment "\n",                                                           \
+            "\t%s(88_tmp%zu)" comment "\n",                                                           \
             kIR_KEY_WORD_ARRAY[RETURN_INDEX],                                                       \
             return_value_                                                                           \
         )
@@ -131,7 +145,7 @@
 #define IR_SYSCALL_(return_value_, syscall_name_, arg_cnt_)                                         \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "%s(88_tmp%zu, %s, %ld)\t# System function call: \"%s\"\n",                             \
+            "\t%s(88_tmp%zu, %s, %ld)\t# System function call: \"%s\"\n",                             \
             kIR_KEY_WORD_ARRAY[SYSTEM_FUNCTION_CALL_INDEX],                                         \
             return_value_,                                                                          \
             syscall_name_,                                                                          \
