@@ -19,7 +19,7 @@
         )
 
 
-#define IR_GIVE_ARG_(arg_num, temp_variable_index)                                                  \
+#define IR_GIVE_ARG_(arg_num_, temp_variable_index_)                                                \
         fprintf(                                                                                    \
             IR_file,                                                                                \
             "\t%s(14_arg%zu, 88_tmp%zu)\n",                                                         \
@@ -34,16 +34,17 @@
             "\t%s(88_tmp%ld, 14_arg%zu)\n",                                                         \
             kIR_KEY_WORD_ARRAY[ASSIGNMENT_INDEX],                                                   \
             temp_variable_index_,                                                                   \
-            arg_num                                                                                 \
+            arg_num_                                                                                \
         )
 
-#define IR_ASSIGN_TMP_VAR_(tmp_index_, var_index_)                                                  \
+#define IR_ASSIGN_TMP_VAR_(tmp_index_, var_index_, comment)                                         \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(88_tmp%zu, var%zu)\n",                                                            \
+            "\t%s(88_tmp%zu, var%zu)\t # %s\n",                                                     \
             kIR_KEY_WORD_ARRAY[ASSIGNMENT_INDEX],                                                   \
-            tmp_index_,                                                                            \
+            tmp_index_,                                                                             \
             var_index_,                                                                             \
+            comment                                                                                 \
         )
 
 #define IR_ASSIGN_TMP_TMP_(tmp_index1_, tmp_index2_)                                                \
@@ -61,7 +62,7 @@
             "\t%s(88_tmp%zu, %lg)\n",                                                               \
             kIR_KEY_WORD_ARRAY[ASSIGNMENT_INDEX],                                                   \
             tmp_index1_,                                                                            \
-            num_,                                                                                   \
+            num_                                                                                    \
         )
 
 #define IR_ASSIGN_VAR_(variable_index_, temp_variable_index_)                                       \
@@ -77,7 +78,7 @@
         fprintf(                                                                                    \
             IR_file,                                                                                \
             "\t%s(label%zu, 88_tmp%zu)\t# %s\n",                                                    \
-            kIRJumpKeyWord,                                                                         \
+            kIR_KEY_WORD_ARRAY[CONDITIONAL_JUMP_INDEX],                                             \
             label_num_,                                                                             \
             cond_res_,                                                                              \
             comment                                                                                 \
@@ -97,14 +98,14 @@
             IR_file,                                                                                \
             "\t%s(label%zu)\t# %s\n",                                                               \
             kIR_KEY_WORD_ARRAY[LABEL_INDEX],                                                        \
-            label_num_                                                                              \
+            label_num_,                                                                             \
             comment                                                                                 \
         )
 
 #define IR_CALL_FUNC_(return_value_, func_num_, cnt_args_, comment)                                 \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(88_tmp%zu, func_%zu_%zu, %zu)\t# %s\n",                                           \ 
+            "\t%s(88_tmp%zu, func_%zu_%zu, %zu)\t# %s\n",                                           \
             kIR_KEY_WORD_ARRAY[FUNCTION_CALL_INDEX],                                                \
             return_value_,                                                                          \
             func_num_,                                                                              \
@@ -132,17 +133,17 @@
             comment                                                                                 \
         )
 
-#define IR_MAIN_BODY()                                                                              \
+#define IR_MAIN_BODY_()                                                                             \
         fprintf(                                                                                    \
             IR_file,                                                                                \
             "\n%s(main, 0)\t# implement main\n",                                                    \
-            kIR_KEY_WORD_ARRAY[FUNCTION_BODY_INDEX],                                                \
+            kIR_KEY_WORD_ARRAY[FUNCTION_BODY_INDEX]                                                 \
         )
 
-#define IR_RET_(return_value_)                                                             \
+#define IR_RET_(return_value_)                                                                      \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(88_tmp%zu)\n",                                                           \
+            "\t%s(88_tmp%zu)\n",                                                                    \
             kIR_KEY_WORD_ARRAY[RETURN_INDEX],                                                       \
             return_value_                                                                           \
         )
@@ -150,12 +151,12 @@
 #define IR_SYSCALL_(return_value_, syscall_name_, arg_cnt_)                                         \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(88_tmp%zu, %s, %ld)\t# System function call: \"%s\"\n",                             \
+            "\t%s(88_tmp%zu, %s, %ld)\t# System function call: \"%s\"\n",                           \
             kIR_KEY_WORD_ARRAY[SYSTEM_FUNCTION_CALL_INDEX],                                         \
             return_value_,                                                                          \
             syscall_name_,                                                                          \
             arg_cnt_,                                                                               \
-            syscall_name_,                                                                          \
+            syscall_name_                                                                           \
         )
 
 #endif /*PYAM_IR_SRC_DSL_WRITE_H*/
