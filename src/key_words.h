@@ -16,6 +16,7 @@ enum IR_KeyWord_Indexes
     IR_LABEL_INDEX               ,
     IR_RETURN_INDEX              ,
     IR_SYSTEM_FUNCTION_CALL_INDEX,
+    IR_INVALID_KEY_WORD = -1,
 };
 
 const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX]=
@@ -38,6 +39,7 @@ enum IR_SysCall_Indexes
     HLT_INDEX = 0   ,
     IN_INDEX        ,
     OUT_INDEX       ,
+    INVALID_SYSCALL = -1
 };
 
 const char kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER][kIR_SYS_CALL_NAME_MAX]=

@@ -53,7 +53,7 @@
             "\t%s(88_tmp%zu, 88_tmp%zu)\n",                                                         \
             kIR_KEY_WORD_ARRAY[IR_ASSIGNMENT_INDEX],                                                \
             tmp_index1_,                                                                            \
-            tmp_index2_,                                                                            \
+            tmp_index2_                                                                             \
         )
 
 #define IR_ASSIGN_TMP_NUM_(tmp_index1_, num_)                                                       \
