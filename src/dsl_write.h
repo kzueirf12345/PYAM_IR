@@ -65,13 +65,14 @@
             num_                                                                                    \
         )
 
-#define IR_ASSIGN_VAR_(variable_index_, temp_variable_index_)                                       \
+#define IR_ASSIGN_VAR_(variable_index_, temp_variable_index_, comment)                              \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(32_var%ld, 88_tmp%zu)\t# Put result to the variable\n",                           \
+            "\t%s(32_var%ld, 88_tmp%zu)\t# Variable: %s\n",                                         \
             kIR_KEY_WORD_ARRAY[IR_ASSIGNMENT_INDEX],                                                \
             variable_index_,                                                                        \
-            temp_variable_index_                                                                    \
+            temp_variable_index_,                                                                   \
+            comment                                                                                 \
         )
 
 #define IR_COND_JMP_(label_num_, cond_res_, comment)                                                \
