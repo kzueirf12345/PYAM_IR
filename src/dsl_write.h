@@ -42,7 +42,7 @@
             IR_file,                                                                                \
             "\t%s(88_tmp%zu, var%zu)\n",                                                            \
             kIR_KEY_WORD_ARRAY[ASSIGNMENT_INDEX],                                                   \
-            tmp_index1_,                                                                            \
+            tmp_index_,                                                                            \
             var_index_,                                                                             \
         )
 
@@ -76,37 +76,41 @@
 #define IR_COND_JMP_(label_num_, cond_res_, comment)                                                \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(label%zu, 88_tmp%zu)\t# " comment "\n",                                             \
+            "\t%s(label%zu, 88_tmp%zu)\t# %s\n",                                                    \
             kIRJumpKeyWord,                                                                         \
             label_num_,                                                                             \
             cond_res_                                                                               \
+            comment                                                                                 \
         )
 
 #define IR_JMP_(label_num_, comment)                                                                \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(label%zu, 1)\t# " comment "\n",                                                     \
+            "\t%s(label%zu, 1)\t# %s\n",                                                            \
             kIR_KEY_WORD_ARRAY[CONDITIONAL_JUMP_INDEX],                                             \
             label_num_                                                                              \
+            comment                                                                                 \
         )
 
 #define IR_LABEL_(label_num_, comment)                                                              \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(label%zu)\t# " comment "\n",                                                        \
+            "\t%s(label%zu)\t# %s\n",                                                               \
             kIR_KEY_WORD_ARRAY[LABEL_INDEX],                                                        \
             label_num_                                                                              \
+            comment                                                                                 \
         )
 
 #define IR_CALL_FUNC_(return_value_, func_num_, cnt_args_, comment)                                 \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(88_tmp%zu, func_%zu_%zu, %zu)" comment "\n",                                      \ 
+            "\t%s(88_tmp%zu, func_%zu_%zu, %zu)\t# %s\n",                                           \ 
             kIR_KEY_WORD_ARRAY[FUNCTION_CALL_INDEX],                                                \
             return_value_,                                                                          \
             func_num_,                                                                              \
             cnt_args_,                                                                              \
-            cnt_args_                                                                               \
+            cnt_args_,                                                                              \
+            comment                                                                                 \
         )
 
 #define IR_CALL_MAIN_(return_value_)                                                                \
@@ -114,17 +118,18 @@
             IR_file,                                                                                \
             "%s(88_tmp%zu, main, 0)\t# call main\n",                                                \
             kIR_KEY_WORD_ARRAY[FUNCTION_CALL_INDEX],                                                \
-            assign_num_                                                                             \
+            return_value_                                                                           \
         )
 
-#define IR_FUNCTION_BODY(func_num_, cnt_args_)                                                      \
+#define IR_FUNCTION_BODY_(func_num_, cnt_args_, comment)                                            \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\n%s(func_%zu_%zu, %zu)\t# implement func\n",                                          \
+            "\n%s(func_%zu_%zu, %zu)\t# %s\n",                                                      \
             kIR_KEY_WORD_ARRAY[FUNCTION_BODY_INDEX],                                                \
             func_num_,                                                                              \
             cnt_args_,                                                                              \
             cnt_args_                                                                               \
+            comment                                                                                 \
         )
 
 #define IR_MAIN_BODY()                                                                              \
@@ -134,10 +139,10 @@
             kIR_KEY_WORD_ARRAY[FUNCTION_BODY_INDEX],                                                \
         )
 
-#define IR_RET_(return_value_, comment)                                                             \
+#define IR_RET_(return_value_)                                                             \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(88_tmp%zu)" comment "\n",                                                           \
+            "\t%s(88_tmp%zu)\n",                                                           \
             kIR_KEY_WORD_ARRAY[RETURN_INDEX],                                                       \
             return_value_                                                                           \
         )
