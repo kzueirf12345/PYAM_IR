@@ -33,7 +33,7 @@
             IR_file,                                                                                \
             "\t%s(88_tmp%ld, 14_arg%zu)\n",                                                         \
             kIR_KEY_WORD_ARRAY[ASSIGNMENT_INDEX],                                                   \
-            temp_variable_index_                                                                    \
+            temp_variable_index_,                                                                   \
             arg_num                                                                                 \
         )
 
@@ -79,7 +79,7 @@
             "\t%s(label%zu, 88_tmp%zu)\t# %s\n",                                                    \
             kIRJumpKeyWord,                                                                         \
             label_num_,                                                                             \
-            cond_res_                                                                               \
+            cond_res_,                                                                              \
             comment                                                                                 \
         )
 
@@ -88,7 +88,7 @@
             IR_file,                                                                                \
             "\t%s(label%zu, 1)\t# %s\n",                                                            \
             kIR_KEY_WORD_ARRAY[CONDITIONAL_JUMP_INDEX],                                             \
-            label_num_                                                                              \
+            label_num_,                                                                             \
             comment                                                                                 \
         )
 
@@ -128,7 +128,7 @@
             kIR_KEY_WORD_ARRAY[FUNCTION_BODY_INDEX],                                                \
             func_num_,                                                                              \
             cnt_args_,                                                                              \
-            cnt_args_                                                                               \
+            cnt_args_,                                                                              \
             comment                                                                                 \
         )
 

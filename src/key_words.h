@@ -27,7 +27,7 @@ const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX]=
     {"Digging"},
     {"Viperr"},
     {"Cherepovec"},
-    {"Bobb"}
+    {"Boob"}
 };
 
 /*Если кто-то меняет этот файл, то слеудет произвести изменения и в файле с описанием IR'а - codegen.h*/
