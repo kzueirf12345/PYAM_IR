@@ -19,7 +19,7 @@ enum IR_KeyWord_Indexes
     IR_INVALID_KEY_WORD = -1,
 };
 
-const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX]=
+const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX] =
 {
     {"RingRing"},
     {"Gyat"},
@@ -29,6 +29,33 @@ const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX]=
     {"Viperr"},
     {"Cherepovec"},
     {"Bobb"}
+};
+
+const size_t kIR_OPERAND_IDENTIFIERS_NUMBER   = 3;
+const size_t kIR_OPERAND_IDENTIFIERS_NAME_MAX = 16;
+ 
+// I made both index and code enum in case we will add some non-numerical 
+// prefixes to anything, string array will probably be deleted in the future
+
+enum IR_Operands_Identifiers_Indexes
+{
+    IR_TMP_OPERAND_INDEX,
+    IR_VAR_OPERAND_INDEX,
+    IR_ARG_OPERAND_INDEX,
+};
+
+const char kIR_OPERAND_IDENTIFIER_ARRAY[kIR_OPERAND_IDENTIFIERS_NUMBER][kIR_OPERAND_IDENTIFIERS_NAME_MAX] =
+{
+    {"88"},
+    {"32"},
+    {"14"},
+};
+
+enum IR_Operands_Identifiers_Codes
+{
+    IR_TMP_OPERAND_CODE = 88,
+    IR_VAR_OPERAND_CODE = 32,
+    IR_ARG_OPERAND_CODE = 14,
 };
 
 const size_t kIR_SYS_CALL_NUMBER   = 3;
@@ -42,7 +69,7 @@ enum IR_SysCall_Indexes
     INVALID_SYSCALL = -1
 };
 
-const char kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER][kIR_SYS_CALL_NAME_MAX]=
+const char kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER][kIR_SYS_CALL_NAME_MAX] =
 {
     {"hlt"},
     {"in"},
