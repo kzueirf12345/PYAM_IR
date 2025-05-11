@@ -9,7 +9,7 @@
 #define IR_OPERATION_(return_value_, op_type_, operand1_, operand2_)                                \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(88_tmp%zu, %d, 88_tmp%zu, 88_tmp%zu)\t# %s\n"                                     \
+            "\t%s(88_tmp%zu, %d, 88_tmp%zu, 88_tmp%zu)\t# %s\n",                                    \
             kIR_KEY_WORD_ARRAY[IR_OPERATION_INDEX],                                                 \
             return_value_,                                                                          \
             op_type_,                                                                               \
