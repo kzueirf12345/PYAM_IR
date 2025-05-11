@@ -8,14 +8,14 @@ const size_t kIR_KEY_WORD_NAME_MAX = 16;
 
 enum IR_KeyWord_Indexes
 {
-    FUNCTION_CALL_INDEX = 0   ,
-    FUNCTION_BODY_INDEX       ,
-    CONDITIONAL_JUMP_INDEX    ,
-    ASSIGNMENT_INDEX          ,
-    OPERATION_INDEX           ,
-    LABEL_INDEX               ,
-    RETURN_INDEX              ,
-    SYSTEM_FUNCTION_CALL_INDEX,
+    IR_FUNCTION_CALL_INDEX = 0   ,
+    IR_FUNCTION_BODY_INDEX       ,
+    IR_CONDITIONAL_JUMP_INDEX    ,
+    IR_ASSIGNMENT_INDEX          ,
+    IR_OPERATION_INDEX           ,
+    IR_LABEL_INDEX               ,
+    IR_RETURN_INDEX              ,
+    IR_SYSTEM_FUNCTION_CALL_INDEX,
 };
 
 const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX]=
