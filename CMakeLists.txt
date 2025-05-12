@@ -1,3 +1,6 @@
+cmake_minimum_required (VERSION 3.20)
+project (pyam_ir CXX ASM_NASM)
+
 add_library (pyam_ir
     STATIC
 

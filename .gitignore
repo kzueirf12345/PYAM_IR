@@ -74,3 +74,5 @@ assets/*.log
 doxygen
 
 *.lst
+
+build
