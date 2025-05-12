@@ -106,11 +106,10 @@
 #define IR_CALL_FUNC_(return_value_, func_num_, cnt_args_, comment)                                 \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(tmp%zu, func_%zu_%zu, %zu)\t# %s\n",                                              \
+            "\t%s(tmp%zu, func_%zu_%zu)\t# %s\n",                                                   \
             kIR_KEY_WORD_ARRAY[IR_FUNCTION_CALL_INDEX],                                             \
             return_value_,                                                                          \
             func_num_,                                                                              \
-            cnt_args_,                                                                              \
             cnt_args_,                                                                              \
             comment                                                                                 \
         )
@@ -123,22 +122,24 @@
             return_value_                                                                           \
         )
 
-#define IR_FUNCTION_BODY_(func_num_, cnt_args_, cnt_local_vars_, comment)                                            \
+#define IR_FUNCTION_BODY_(func_num_, cnt_args_, cnt_local_vars_, comment)                           \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\n%s(func_%zu_%zu, %zu)\t# %s\n",                                                      \
+            "\n%s(func_%zu_%zu, %zu, %zu)\t# %s\n",                                                 \
             kIR_KEY_WORD_ARRAY[IR_FUNCTION_BODY_INDEX],                                             \
             func_num_,                                                                              \
+            cnt_args_,                                                                              \
             cnt_args_,                                                                              \
             cnt_local_vars_,                                                                        \
             comment                                                                                 \
         )
 
-#define IR_MAIN_BODY_()                                                                             \
+#define IR_MAIN_BODY_(cnt_local_vars_)                                                              \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\n%s(main, 0)\t# implement main\n",                                                    \
-            kIR_KEY_WORD_ARRAY[IR_FUNCTION_BODY_INDEX]                                              \
+            "\n%s(main, 0, %zu)\t# implement main\n",                                               \
+            kIR_KEY_WORD_ARRAY[IR_FUNCTION_BODY_INDEX],                                             \
+            cnt_local_vars_                                                                         \
         )
 
 #define IR_RET_(return_value_)                                                                      \
