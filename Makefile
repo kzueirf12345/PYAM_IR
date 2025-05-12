@@ -7,6 +7,7 @@
 PROJECT_NAME = pyam_ir
 
 BUILD_DIR = ./build
+INCLUDE_DIR = ./include
 SRC_DIR = ./src
 COMPILER = gcc
 
@@ -45,9 +46,9 @@ endif
 
 FLAGS += $(ADD_FLAGS)
 
-LIBS = 
+LIBS =
 
-DIRS = 
+DIRS =
 BUILD_DIRS = $(DIRS:%=$(BUILD_DIR)/%)
 
 SOURCES = operations.c
@@ -65,7 +66,7 @@ lib$(PROJECT_NAME).a: $(OBJECTS_REL_PATH)
 	ar -rcs lib$(PROJECT_NAME).a $(OBJECTS_REL_PATH) $(LIBS)
 
 $(BUILD_DIR)/%.o : ./$(SRC_DIR)/%.c | ./$(BUILD_DIR)/ $(BUILD_DIRS)
-	@$(COMPILER) $(FLAGS) -I$(SRC_DIR) -c -MMD -MP $< -o $@
+	@$(COMPILER) $(FLAGS) -I$(INCLUDE_DIR) -c -MMD -MP $< -o $@		# Ебать ты рофл -I SRC_DIR
 
 -include $(DEPS_REL_PATH)
 

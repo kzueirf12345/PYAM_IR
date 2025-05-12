@@ -8,8 +8,7 @@ enable_language (C)
 
 target_include_directories(pyam_ir
     PUBLIC
-        .
-        ./src
+        ./include
 )
 
 target_compile_features (pyam_ir

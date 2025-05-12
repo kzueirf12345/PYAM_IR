@@ -1,9 +1,9 @@
 #ifndef PYAM_IR_LIBPYAM_IR_H
 #define PYAM_IR_LIBPYAM_IR_H
 
-#include "src/key_words.h"
-#include "src/dsl_write.h"
-#include "src/operations.h"
+#include "key_words.h"
+#include "dsl_write.h"
+#include "operations.h"
 
 extern "C" const char* ir_op_type_to_str(const enum IrOpType type);
 
