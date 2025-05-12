@@ -55,16 +55,25 @@ enum IR_SysCall_Indexes
     INVALID_SYSCALL = -1
 };
 
+struct PYAM_IR_SystemCall_t 
+{
+    char Name[kIR_SYS_CALL_NAME_MAX];
+    int NumberOfArguments;
+};
+
+
 const int kIR_SYSCALL_HLT_ARGUMENTS_NUMBER = 0;
 const int kIR_SYSCALL_IN_ARGUMENTS_NUMBER = 1;
 const int kIR_SYSCALL_OUT_ARGUMENTS_NUMBER = 0;
 
-const char kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER][kIR_SYS_CALL_NAME_MAX] =
+const PYAM_IR_SystemCall_t kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER] = 
 {
-    {"hlt"},
-    {"in"},
-    {"out"}
+    {"hlt", kIR_SYSCALL_HLT_ARGUMENTS_NUMBER},
+    {"in", kIR_SYSCALL_IN_ARGUMENTS_NUMBER},
+    {"out", kIR_SYSCALL_OUT_ARGUMENTS_NUMBER},
 };
+
+
 
 /*Если кто-то меняет этот файл, то слеудет произвести изменения и в файле с описанием IR'а - codegen.h*/
 // Никакого кодгена больше нет, в данном случае он был лишним + бесполезным + портил читаемость
