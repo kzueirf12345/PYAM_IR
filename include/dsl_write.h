@@ -28,13 +28,14 @@
             temp_variable_index_                                                                    \
         )
 
-#define IR_TAKE_ARG_(var_index_, arg_num_)                                                          \
+#define IR_TAKE_ARG_(var_index_, arg_num_, comment)                                                 \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(var%lld, arg%zu)\n",                                                              \
+            "\t%s(var%lld, arg%zu)\t # Variable: %s\n",                                             \
             kIR_KEY_WORD_ARRAY[IR_ASSIGNMENT_INDEX],                                                \
             var_index_,                                                                             \
-            arg_num_                                                                                \
+            arg_num_,                                                                               \
+            comment                                                                                 \
         )
 
 #define IR_ASSIGN_TMP_VAR_(tmp_index_, var_index_, comment)                                         \
