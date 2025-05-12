@@ -4,6 +4,8 @@ add_library (pyam_ir
     src/operations.c
 )
 
+enable_language (C)
+
 target_include_directories(pyam_ir
     PUBLIC
         .
@@ -12,7 +14,7 @@ target_include_directories(pyam_ir
 
 target_compile_features (pyam_ir
     PRIVATE
-        cxx_std_17
+        c_std_11
 )
 
 target_compile_options (pyam_ir

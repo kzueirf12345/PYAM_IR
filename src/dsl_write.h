@@ -28,19 +28,19 @@
             temp_variable_index_                                                                    \
         )
 
-#define IR_TAKE_ARG_(temp_variable_index_, arg_num_)                                                \
+#define IR_TAKE_ARG_(var_index_, arg_num_)                                                          \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(88_tmp%zu, 14_arg%zu)\n",                                                         \
+            "\t%s(32_var%lld, 14_arg%zu)\n",                                                        \
             kIR_KEY_WORD_ARRAY[IR_ASSIGNMENT_INDEX],                                                \
-            temp_variable_index_,                                                                   \
+            var_index_,                                                                             \
             arg_num_                                                                                \
         )
 
 #define IR_ASSIGN_TMP_VAR_(tmp_index_, var_index_, comment)                                         \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(88_tmp%zu, var%zu)\t # %s\n",                                                     \
+            "\t%s(88_tmp%zu, 32_var%lld)\t # %s\n",                                                 \
             kIR_KEY_WORD_ARRAY[IR_ASSIGNMENT_INDEX],                                                \
             tmp_index_,                                                                             \
             var_index_,                                                                             \
@@ -68,7 +68,7 @@
 #define IR_ASSIGN_VAR_(variable_index_, temp_variable_index_, comment)                              \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(32_var%zu, 88_tmp%zu)\t# Variable: %s\n",                                         \
+            "\t%s(32_var%lld, 88_tmp%zu)\t# Variable: %s\n",                                         \
             kIR_KEY_WORD_ARRAY[IR_ASSIGNMENT_INDEX],                                                \
             variable_index_,                                                                        \
             temp_variable_index_,                                                                   \
@@ -152,7 +152,7 @@
 #define IR_SYSCALL_(return_value_, syscall_name_, arg_cnt_)                                         \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "\t%s(88_tmp%zu, %s, %ld)\t# System function call: \"%s\"\n",                           \
+            "\t%s(88_tmp%zu, %s, %zu)\t# System function call: \"%s\"\n",                           \
             kIR_KEY_WORD_ARRAY[IR_SYSTEM_FUNCTION_CALL_INDEX],                                      \
             return_value_,                                                                          \
             syscall_name_,                                                                          \

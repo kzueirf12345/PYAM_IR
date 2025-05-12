@@ -25,6 +25,7 @@ enum IrOpType
     IR_OP_TYPE_LESSEQ           = 9,
     IR_OP_TYPE_GREAT            = 10,
     IR_OP_TYPE_GREATEQ          = 11,
+    IR_OP_TYPE_INVALID_OPERATION = -1
 };
 
 enum IrOpBlockType
@@ -48,13 +49,9 @@ enum IrOpBlockType
 // ||  Assignment        ||  Gnoming    ||  Tmp or var          ||  None             ||  None       ||  Var or Tmp           ||  Var or Tmp or Num   ||
 // ||  Operation         ||  Digging    ||  Tmp or var          ||  None             ||  Operation  ||  Var or Tmp or Num    ||  Var or Tmp or Num   ||
 // ||  Label             ||  Viperr     ||  None                ||  Local label      ||  None       ||  None                 ||  None                ||
-// ||  Return            ||  Cherepovec ||  Tmp or var or Num   ||  None             ||  None       ||  None                 ||  None                ||    
+// ||  Return            ||  Cherepovec ||  Tmp or var or Num   ||  None             ||  None       ||  None                 ||  None                ||
 // || Call sys function  ||  Boob       ||  None                ||  Sys func name    ||  None       ||  None                 ||  None                ||
 ////-----------------------------------------------------------------------------------------------------------------------------------------------////
 ////                                                        End of PYAM_IR table (EOPYAMIRT)                                                       ////
 
-
-const char* ir_op_type_to_str(const enum IrOpType type);
-
-
-#endif 
+#endif
