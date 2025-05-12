@@ -44,20 +44,6 @@ enum IR_Operands_Identifiers_Indexes
     IR_ARG_OPERAND_INDEX,
 };
 
-const char kIR_OPERAND_IDENTIFIER_ARRAY[kIR_OPERAND_IDENTIFIERS_NUMBER][kIR_OPERAND_IDENTIFIERS_NAME_MAX] =
-{
-    {"88"},
-    {"32"},
-    {"14"},
-};
-
-enum IR_Operands_Identifiers_Codes
-{
-    IR_TMP_OPERAND_CODE = 88,
-    IR_VAR_OPERAND_CODE = 32,
-    IR_ARG_OPERAND_CODE = 14,
-};
-
 const size_t kIR_SYS_CALL_NUMBER   = 3;
 const size_t kIR_SYS_CALL_NAME_MAX = 16;
 
@@ -68,6 +54,10 @@ enum IR_SysCall_Indexes
     SYSCALL_OUT_INDEX       ,
     INVALID_SYSCALL = -1
 };
+
+const int kIR_SYSCALL_HLT_ARGUMENTS_NUMBER = 0;
+const int kIR_SYSCALL_IN_ARGUMENTS_NUMBER = 1;
+const int kIR_SYSCALL_OUT_ARGUMENTS_NUMBER = 0;
 
 const char kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER][kIR_SYS_CALL_NAME_MAX] =
 {
