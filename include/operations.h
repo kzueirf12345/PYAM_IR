@@ -50,7 +50,8 @@ enum IrOpBlockType
 // ||  Operation         ||  Digging    ||  Tmp or var          ||  None             ||  Operation  ||  Var or Tmp or Num    ||  Var or Tmp or Num   ||
 // ||  Label             ||  Viperr     ||  None                ||  Local label      ||  None       ||  None                 ||  None                ||
 // ||  Return            ||  Cherepovec ||  Tmp or var or Num   ||  None             ||  None       ||  None                 ||  None                ||
-// || Call sys function  ||  Boob       ||  None                ||  Sys func name    ||  None       ||  None                 ||  None                ||
+// ||  Call sys function ||  Boob       ||  None                ||  Sys func name    ||  None       ||  None                 ||  None                ||
+// ||  Global vars num   ||  Gg         ||  None                ||  None             ||  None       ||  Num of global vars   ||  None                ||
 ////-----------------------------------------------------------------------------------------------------------------------------------------------////
 ////                                                        End of PYAM_IR table (EOPYAMIRT)                                                       ////
 

@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 
-const size_t kIR_KEY_WORD_NUMBER   = 8;
+const size_t kIR_KEY_WORD_NUMBER   = 9;
 const size_t kIR_KEY_WORD_NAME_MAX = 16;
 
 enum IR_KeyWord_Indexes
@@ -16,6 +16,7 @@ enum IR_KeyWord_Indexes
     IR_LABEL_INDEX               ,
     IR_RETURN_INDEX              ,
     IR_SYSTEM_FUNCTION_CALL_INDEX,
+    IR_GLOBAL_VARS_NUM_INDEX     ,
     IR_INVALID_KEY_WORD = -1,
 };
 
@@ -28,7 +29,8 @@ const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX] =
     {"Digging"},
     {"Viperr"},
     {"Cherepovec"},
-    {"Bobb"}
+    {"Bobb"},
+    {"Gg"},
 };
 
 const size_t kIR_OPERAND_IDENTIFIERS_NUMBER   = 3;
@@ -45,7 +47,7 @@ enum IR_SysCall_Indexes
     INVALID_SYSCALL = -1
 };
 
-struct PYAM_IR_SystemCall_t 
+struct PYAM_IR_SystemCall_t
 {
     char Name[kIR_SYS_CALL_NAME_MAX];
     int NumberOfArguments;
@@ -56,7 +58,7 @@ const int kIR_SYSCALL_HLT_ARGUMENTS_NUMBER = 1;
 const int kIR_SYSCALL_IN_ARGUMENTS_NUMBER = 1;
 const int kIR_SYSCALL_OUT_ARGUMENTS_NUMBER = 1;
 
-const PYAM_IR_SystemCall_t kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER] = 
+const PYAM_IR_SystemCall_t kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER] =
 {
     {"hlt", kIR_SYSCALL_HLT_ARGUMENTS_NUMBER},
     {"in", kIR_SYSCALL_IN_ARGUMENTS_NUMBER},
