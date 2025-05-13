@@ -118,7 +118,7 @@
 #define IR_CALL_MAIN_(return_value_)                                                                \
         fprintf(                                                                                    \
             IR_file,                                                                                \
-            "%s(tmp%zu, main, 0)\t# call main\n",                                                   \
+            "%s(tmp%zu, main)\t# call main\n",                                                      \
             kIR_KEY_WORD_ARRAY[IR_FUNCTION_CALL_INDEX],                                             \
             return_value_                                                                           \
         )
