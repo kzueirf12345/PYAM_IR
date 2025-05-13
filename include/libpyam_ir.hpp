@@ -5,6 +5,7 @@
 #include "dsl_write.h"
 #include "operations.h"
 
-const char* ir_op_type_to_str(const enum IrOpType type);
+// russians really called this @cum pooper@
+extern "C" const char* ir_op_type_to_str(const enum IrOpType type);
 
 #endif /*PYAM_IR_LIBPYAM_IR_H*/

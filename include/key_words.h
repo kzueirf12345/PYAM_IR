@@ -3,8 +3,8 @@
 
 #include <stdlib.h>
 
-const size_t kIR_KEY_WORD_NUMBER   = 9;
-const size_t kIR_KEY_WORD_NAME_MAX = 16;
+#define kIR_KEY_WORD_NUMBER    9
+#define kIR_KEY_WORD_NAME_MAX  16
 
 enum IR_KeyWord_Indexes
 {
@@ -20,7 +20,7 @@ enum IR_KeyWord_Indexes
     IR_INVALID_KEY_WORD = -1,
 };
 
-const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX] =
+static const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX] =
 {
     {"RingRing"},
     {"Gyat"},
@@ -33,11 +33,11 @@ const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX] =
     {"Gg"},
 };
 
-const size_t kIR_OPERAND_IDENTIFIERS_NUMBER   = 3;
-const size_t kIR_OPERAND_IDENTIFIERS_NAME_MAX = 16;
+#define kIR_OPERAND_IDENTIFIERS_NUMBER   3
+#define kIR_OPERAND_IDENTIFIERS_NAME_MAX 16
 
-const size_t kIR_SYS_CALL_NUMBER   = 3;
-const size_t kIR_SYS_CALL_NAME_MAX = 16;
+#define kIR_SYS_CALL_NUMBER   3
+#define kIR_SYS_CALL_NAME_MAX 16
 
 enum IR_SysCall_Indexes
 {
@@ -47,18 +47,18 @@ enum IR_SysCall_Indexes
     INVALID_SYSCALL = -1
 };
 
-struct PYAM_IR_SystemCall_t
+typedef struct PYAM_IR_SystemCall
 {
     char Name[kIR_SYS_CALL_NAME_MAX];
     int NumberOfArguments;
-};
+} PYAM_IR_SystemCall_t;
 
 
-const int kIR_SYSCALL_HLT_ARGUMENTS_NUMBER = 1;
-const int kIR_SYSCALL_IN_ARGUMENTS_NUMBER = 1;
-const int kIR_SYSCALL_OUT_ARGUMENTS_NUMBER = 1;
+static const int kIR_SYSCALL_HLT_ARGUMENTS_NUMBER = 1;
+static const int kIR_SYSCALL_IN_ARGUMENTS_NUMBER = 1;
+static const int kIR_SYSCALL_OUT_ARGUMENTS_NUMBER = 1;
 
-const PYAM_IR_SystemCall_t kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER] =
+static const PYAM_IR_SystemCall_t kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER] =
 {
     {"hlt", kIR_SYSCALL_HLT_ARGUMENTS_NUMBER},
     {"in", kIR_SYSCALL_IN_ARGUMENTS_NUMBER},
@@ -68,6 +68,7 @@ const PYAM_IR_SystemCall_t kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER] =
 
 
 /*Если кто-то меняет этот файл, то слеудет произвести изменения и в файле с описанием IR'а - codegen.h*/
-// Никакого кодгена больше нет, в данном случае он был лишним + бесполезным + портил читаемость
+// Никакого кодгена больше нет, в данном случае он был лишним + бесполезным + портил читаемость 
+// + это пиздёж просто сука научитесь читать кодген боже vova naumov ebat tupich kek lol I'm Denis
 
 #endif /*PYAM_IR_SRC_KEY_WORDS_H*/
