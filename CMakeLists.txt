@@ -1,13 +1,11 @@
 cmake_minimum_required (VERSION 3.20)
-project (pyam_ir CXX)
+project (pyam_ir C)
 
 add_library (pyam_ir
     STATIC
 
     src/operations.c
 )
-
-enable_language (C)
 
 target_include_directories(pyam_ir
     PUBLIC
