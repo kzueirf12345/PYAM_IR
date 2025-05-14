@@ -10,7 +10,6 @@ const char* ir_op_type_to_str(const enum IrOpType type)
         CASE_ENUM_TO_STRING_(IR_OP_TYPE_SUB);
         CASE_ENUM_TO_STRING_(IR_OP_TYPE_MUL);
         CASE_ENUM_TO_STRING_(IR_OP_TYPE_DIV);
-        CASE_ENUM_TO_STRING_(IR_OP_TYPE_POW);
         CASE_ENUM_TO_STRING_(IR_OP_TYPE_EQ);
         CASE_ENUM_TO_STRING_(IR_OP_TYPE_NEQ);
         CASE_ENUM_TO_STRING_(IR_OP_TYPE_LESS);

@@ -18,13 +18,12 @@ enum IrOpType
     IR_OP_TYPE_SUB              = 2,
     IR_OP_TYPE_MUL              = 3,
     IR_OP_TYPE_DIV              = 4,
-    IR_OP_TYPE_POW              = 5,
-    IR_OP_TYPE_EQ               = 6,
-    IR_OP_TYPE_NEQ              = 7,
-    IR_OP_TYPE_LESS             = 8,
-    IR_OP_TYPE_LESSEQ           = 9,
-    IR_OP_TYPE_GREAT            = 10,
-    IR_OP_TYPE_GREATEQ          = 11,
+    IR_OP_TYPE_EQ               = 5,
+    IR_OP_TYPE_NEQ              = 6,
+    IR_OP_TYPE_LESS             = 7,
+    IR_OP_TYPE_LESSEQ           = 8,
+    IR_OP_TYPE_GREAT            = 9,
+    IR_OP_TYPE_GREATEQ          = 10,
     IR_OP_TYPE_INVALID_OPERATION = -1
 };
 
