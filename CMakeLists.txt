@@ -40,7 +40,7 @@ target_compile_options (pyam_ir
 
         $<$<CONFIG:Release>:
             -O2
-            -flto
+            # -flto
             -DNDEBUG
         >
 )
@@ -60,7 +60,7 @@ target_link_options (pyam_ir
 
         $<$<CONFIG:Release>:
             -O2
-            -flto
+            # -flto
             -DNDEBUG
         >
 )
