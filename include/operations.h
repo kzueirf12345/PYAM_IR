@@ -54,4 +54,6 @@ enum IrOpBlockType
 ////-----------------------------------------------------------------------------------------------------------------------------------------------////
 ////                                                        End of PYAM_IR table (EOPYAMIRT)                                                       ////
 
+const char* ir_op_type_to_str(const enum IrOpType type);
+
 #endif

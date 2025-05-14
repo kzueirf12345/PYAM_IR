@@ -65,10 +65,4 @@ static const PYAM_IR_SystemCall_t kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER] =
     {"out", kIR_SYSCALL_OUT_ARGUMENTS_NUMBER},
 };
 
-
-
-/*Если кто-то меняет этот файл, то слеудет произвести изменения и в файле с описанием IR'а - codegen.h*/
-// Никакого кодгена больше нет, в данном случае он был лишним + бесполезным + портил читаемость 
-// + это пиздёж просто сука научитесь читать кодген боже vova naumov ebat tupich kek lol I'm Denis
-
 #endif /*PYAM_IR_SRC_KEY_WORDS_H*/

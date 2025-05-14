@@ -1,5 +1,4 @@
 #include "../include/operations.h"
-#include "../include/libpyam_ir.h"
 
 #define CASE_ENUM_TO_STRING_(op_type_) case op_type_: return #op_type_
 const char* ir_op_type_to_str(const enum IrOpType type)
