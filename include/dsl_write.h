@@ -14,6 +14,10 @@
 #define IR_FILE_ out
 #endif /*IR_FILE_*/
 
+#define TMP_PREFIX "tmp"
+#define VAR_PREFIX "var"
+#define ARG_PREFIX "arg"
+
 #define IR_GLOBAL_VARS_NUM_(global_vars_num_)                                                       \
         fprintf(                                                                                    \
             IR_FILE_,                                                                               \
