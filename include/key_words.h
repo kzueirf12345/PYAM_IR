@@ -36,7 +36,7 @@ static const char kIR_KEY_WORD_ARRAY[kIR_KEY_WORD_NUMBER][kIR_KEY_WORD_NAME_MAX]
 #define kIR_OPERAND_IDENTIFIERS_NUMBER   3
 #define kIR_OPERAND_IDENTIFIERS_NAME_MAX 16
 
-#define kIR_SYS_CALL_NUMBER   3
+#define kIR_SYS_CALL_NUMBER   4
 #define kIR_SYS_CALL_NAME_MAX 16
 
 enum IR_SysCall_Indexes
@@ -44,6 +44,7 @@ enum IR_SysCall_Indexes
     SYSCALL_HLT_INDEX = 0   ,
     SYSCALL_IN_INDEX        ,
     SYSCALL_OUT_INDEX       ,
+    SYSCALL_POW_INDEX       ,
     INVALID_SYSCALL = -1
 };
 
@@ -57,12 +58,14 @@ typedef struct PYAM_IR_SystemCall
 static const int kIR_SYSCALL_HLT_ARGUMENTS_NUMBER = 1;
 static const int kIR_SYSCALL_IN_ARGUMENTS_NUMBER = 1;
 static const int kIR_SYSCALL_OUT_ARGUMENTS_NUMBER = 1;
+static const int kIR_SYSCALL_POW_ARGUMENTS_NUMBER = 2;
 
 static const PYAM_IR_SystemCall_t kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER] =
 {
     {"hlt", kIR_SYSCALL_HLT_ARGUMENTS_NUMBER},
     {"in", kIR_SYSCALL_IN_ARGUMENTS_NUMBER},
     {"out", kIR_SYSCALL_OUT_ARGUMENTS_NUMBER},
+    {"pow", kIR_SYSCALL_POW_ARGUMENTS_NUMBER},
 };
 
 #endif /*PYAM_IR_SRC_KEY_WORDS_H*/
