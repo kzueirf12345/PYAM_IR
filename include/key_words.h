@@ -56,7 +56,7 @@ typedef struct PYAM_IR_SystemCall
 
 
 static const int kIR_SYSCALL_HLT_ARGUMENTS_NUMBER = 1;
-static const int kIR_SYSCALL_IN_ARGUMENTS_NUMBER = 1;
+static const int kIR_SYSCALL_IN_ARGUMENTS_NUMBER = 0;
 static const int kIR_SYSCALL_OUT_ARGUMENTS_NUMBER = 1;
 static const int kIR_SYSCALL_POW_ARGUMENTS_NUMBER = 2;
 
