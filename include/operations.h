@@ -56,12 +56,12 @@ enum IrOpBlockType
 
 #if defined(__cplusplus)
 extern "C" {
-#endif
+#endif // __cplusplus
 
 const char* ir_op_type_to_str(const enum IrOpType type);
 
 #if defined(__cplusplus)
 }
-#endif
+#endif // __cplusplus
 
 #endif
