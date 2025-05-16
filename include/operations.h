@@ -54,6 +54,14 @@ enum IrOpBlockType
 ////-----------------------------------------------------------------------------------------------------------------------------------------------////
 ////                                                        End of PYAM_IR table (EOPYAMIRT)                                                       ////
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 const char* ir_op_type_to_str(const enum IrOpType type);
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif
