@@ -27,30 +27,29 @@ enum IrOpType
     IR_OP_TYPE_INVALID_OPERATION = -1
 };
 
+#define IR_OP_BLOCK_HANDLE(num_, name_, ...)                                                        \
+        IR_OP_BLOCK_TYPE_##name_ = num_,
+
 enum IrOpBlockType
 {
-    IR_OP_BLOCK_TYPE_CALL_FUNCTION = 1     , // Call function                                       :
-    IR_OP_BLOCK_TYPE_FUNCTION_BODY         , // Function body description (serves as label as well) :
-    IR_OP_BLOCK_TYPE_COND_JUMP             , // Conditional jump                                    :
-    IR_OP_BLOCK_TYPE_ASSIGNMENT            , // Assignment                                          :
-    IP_OP_BLOCK_TYPE_OPERATION             , // Operation                                           :
-    IR_OP_BLOCK_TYPE_RETURN                , // Return                                              :
-    IR_OP_BLOCK_TYPE_LABEL                 , // Label                                               :
-    IR_OP_BLOCK_TYPE_SYSCALL               , // System function call                                :
+#include "codegen.h"
+    IR_OP_BLOCK_TYPE_INVALID       = -1
 };
+
+#undef IR_OP_BLOCK_HANDLE
 
 ////                                               PYAM_IR table (PYAMIRT) for better understanding                                                ////
 ////-----------------------------------------------------------------------------------------------------------------------------------------------////
 // ||    Default name    ||  PYAM name  ||     Return value     ||       Label       ||  Operation  ||     First Operand     ||    Second Operand    ||
 // ||  Call function     ||  RingRing   ||  Tmp                 ||  Function label   ||  None       ||  None                 ||  None                ||
-// ||  Function body     ||  Gyat       ||  None                ||  Function label   ||  None       ||  Number of arguments  ||  None                ||
-// ||  Conditional jump  ||  Frog       ||  None                ||  Local label      ||  None       ||  Tmp                  ||  None                ||
-// ||  Assignment        ||  Gnoming    ||  Tmp or var          ||  None             ||  None       ||  Var or Tmp           ||  Var or Tmp or Num   ||
-// ||  Operation         ||  Digging    ||  Tmp or var          ||  None             ||  Operation  ||  Var or Tmp or Num    ||  Var or Tmp or Num   ||
+// ||  Function body     ||  Gyat       ||  None                ||  Function label   ||  None       ||  Number of arguments  ||  Number of local vars||
+// ||  Conditional jump  ||  Frog       ||  None                ||  Local label      ||  None       ||  Tmp or Num           ||  None                ||
+// ||  Assignment        ||  Gnoming    ||  Tmp or Var or Arg   ||  None             ||  None       ||  Tmp or Var or Arg    ||  None                ||
+// ||  Operation         ||  Digging    ||  Tmp                 ||  None             ||  Operation  ||  Tmp                  ||  Tmp                 ||
 // ||  Label             ||  Viperr     ||  None                ||  Local label      ||  None       ||  None                 ||  None                ||
-// ||  Return            ||  Cherepovec ||  Tmp or var or Num   ||  None             ||  None       ||  None                 ||  None                ||
-// ||  Call sys function ||  Boob       ||  None                ||  Sys func name    ||  None       ||  None                 ||  None                ||
-// ||  Global vars num   ||  Gg         ||  None                ||  None             ||  None       ||  Num of global vars   ||  None                ||
+// ||  Return            ||  Cherepovec ||  Tmp                 ||  None             ||  None       ||  None                 ||  None                ||
+// ||  Call sys function ||  Boob       ||  Tmp                 ||  Sys func name    ||  None       ||  None                 ||  None                ||
+// ||  Global vars num   ||  Gg         ||  None                ||  None             ||  None       ||  Number of arguments  ||  None                ||
 ////-----------------------------------------------------------------------------------------------------------------------------------------------////
 ////                                                        End of PYAM_IR table (EOPYAMIRT)                                                       ////
 

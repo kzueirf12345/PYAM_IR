@@ -2,6 +2,7 @@
 #define PYAM_IR_SRC_KEY_WORDS_H
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define kIR_KEY_WORD_NUMBER    9
 #define kIR_KEY_WORD_NAME_MAX  16
@@ -52,6 +53,7 @@ typedef struct PYAM_IR_SystemCall
 {
     char Name[kIR_SYS_CALL_NAME_MAX];
     int NumberOfArguments;
+    bool HaveRetVal;
 } PYAM_IR_SystemCall_t;
 
 
@@ -62,10 +64,10 @@ static const int kIR_SYSCALL_POW_ARGUMENTS_NUMBER = 2;
 
 static const PYAM_IR_SystemCall_t kIR_SYS_CALL_ARRAY[kIR_SYS_CALL_NUMBER] =
 {
-    {"hlt", kIR_SYSCALL_HLT_ARGUMENTS_NUMBER},
-    {"in", kIR_SYSCALL_IN_ARGUMENTS_NUMBER},
-    {"out", kIR_SYSCALL_OUT_ARGUMENTS_NUMBER},
-    {"pow", kIR_SYSCALL_POW_ARGUMENTS_NUMBER},
+    {"hlt", kIR_SYSCALL_HLT_ARGUMENTS_NUMBER, false},
+    {"in", kIR_SYSCALL_IN_ARGUMENTS_NUMBER, true},
+    {"out", kIR_SYSCALL_OUT_ARGUMENTS_NUMBER, false},
+    {"pow", kIR_SYSCALL_POW_ARGUMENTS_NUMBER, true},
 };
 
 #endif /*PYAM_IR_SRC_KEY_WORDS_H*/
