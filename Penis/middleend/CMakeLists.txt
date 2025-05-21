@@ -1,29 +1,37 @@
-cmake_minimum_required (VERSION 3.20)
-project (pyam_ir C)
+add_executable(middleend
 
-add_subdirectory (Penis)
+    source/main_middleend.cpp
 
-add_library (pyam_ir
-    STATIC
+    source/middleend.cpp
+    source/dead_code_elim.cpp
+    source/subexpression.cpp
+    source/error_handler.cpp
 
-    src/operations.c
+    source/parse_flags_lang.cpp
 )
 
-target_link_libraries(pyam_ir
+target_link_libraries(middleend
     penis_lib
 )
 
-target_include_directories(pyam_ir
+target_include_directories(middleend
     PUBLIC
         ./include
+
+        ./MyLib
+        ./MyLib/My_stdio
+        ./MyLib/Logger
+        ./MyLib/Assert
+
+        ../include
 )
 
-target_compile_features (pyam_ir
+target_compile_features (middleend
     PRIVATE
         c_std_11
 )
 
-target_compile_options (pyam_ir
+target_compile_options (middleend
     PRIVATE
         -fdiagnostics-color=always
 
@@ -51,7 +59,7 @@ target_compile_options (pyam_ir
         >
 )
 
-target_link_options (pyam_ir
+target_link_options (middleend
     PRIVATE
         -march=native
 

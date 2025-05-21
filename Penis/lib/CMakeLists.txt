@@ -1,29 +1,37 @@
-cmake_minimum_required (VERSION 3.20)
-project (pyam_ir C)
+add_library(penis_lib
 
-add_subdirectory (Penis)
+    source/read_ir.cpp
+    source/write_ir.cpp
 
-add_library (pyam_ir
-    STATIC
+    List/source/list_construction.cpp
+    List/source/list_error_handler.cpp
+    List/source/list_src.cpp
+    List/source/list_pop.cpp
+    List/source/list_push.cpp
 
-    src/operations.c
+    MyLib/Logger/logging.cpp
+    MyLib/Assert/print_error.cpp
+    MyLib/My_stdio/my_stdio.cpp
 )
 
-target_link_libraries(pyam_ir
-    penis_lib
-)
-
-target_include_directories(pyam_ir
+target_include_directories(penis_lib
     PUBLIC
+        .
         ./include
+        ./List/include
+
+        ./MyLib
+        ./MyLib/My_stdio
+        ./MyLib/Logger
+        ./MyLib/Assert
 )
 
-target_compile_features (pyam_ir
+target_compile_features (penis_lib
     PRIVATE
         c_std_11
 )
 
-target_compile_options (pyam_ir
+target_compile_options (penis_lib
     PRIVATE
         -fdiagnostics-color=always
 
@@ -51,7 +59,7 @@ target_compile_options (pyam_ir
         >
 )
 
-target_link_options (pyam_ir
+target_link_options (penis_lib
     PRIVATE
         -march=native
 

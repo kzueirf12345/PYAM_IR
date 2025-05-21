@@ -1,0 +1,11 @@
+build/
+
+.vscode/
+
+My_lib/Logger/error.txt
+
+Dump_files/*
+
+list
+
+Makefile

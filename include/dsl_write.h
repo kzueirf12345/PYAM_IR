@@ -67,15 +67,6 @@
             comment                                                                                 \
         )
 
-#define IR_ASSIGN_TMP_TMP_(tmp_index1_, tmp_index2_)                                                \
-        fprintf(                                                                                    \
-            IR_FILE_,                                                                               \
-            "\t%s(tmp%zu, tmp%zu)\t # Assigning tmp to tmp\n",                                      \
-            kIR_KEY_WORD_ARRAY[IR_ASSIGNMENT_INDEX],                                                \
-            tmp_index1_,                                                                            \
-            tmp_index2_                                                                             \
-        )
-
 #define IR_ASSIGN_TMP_NUM_(tmp_index1_, num_)                                                       \
         fprintf(                                                                                    \
             IR_FILE_,                                                                               \
