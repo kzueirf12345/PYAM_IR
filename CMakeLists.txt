@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.20)
-project (pyam_ir C)
+project (pyam_ir C CXX)
 
 add_subdirectory (Penis)
 

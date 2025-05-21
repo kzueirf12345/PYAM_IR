@@ -22,6 +22,7 @@ enum IRError
 
     kInvalidAssigningIR         = 11,
     kCantIdentifyLabelIR        = 12,
+    kInvalidOrderListIR         = 13,
 };
 
 enum IRError OptimizeIR (FILE* const input_file, FILE* const output_file);
