@@ -58,9 +58,16 @@ OBJECTS_REL_PATH = $(SOURCES:%.c=$(BUILD_DIR)/%.o)
 DEPS_REL_PATH = $(OBJECTS_REL_PATH:%.o=%.d)
 
 
-all: build
+all: build start
 
 build: lib$(PROJECT_NAME).a
+	cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++
+	cmake --build build
+
+start: 
+	./build/Penis/middleend/middleend -i ../../assets/midle_out.pyam -o ../../assets/midle2_out.pyam
+
+rebuild: clean build
 
 lib$(PROJECT_NAME).a: $(OBJECTS_REL_PATH)
 	ar -rcs lib$(PROJECT_NAME).a $(OBJECTS_REL_PATH) $(LIBS)
