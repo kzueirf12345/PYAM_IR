@@ -342,7 +342,10 @@ static enum IRError FindAndDeleteSimilarExpressionsGlobal (list_t* const IR_list
                 (*cnt_global_vars)++;
                 max_tmp_index++;
             }
+            cmp_op_index = NextIndex (operation_list, cmp_op_index);
         }
+
+        op_index = NextIndex (operation_list, op_index);
     }
 
     return kDoneIR;
@@ -396,6 +399,8 @@ static enum IRError FindSimilarExpressionsInFunc (list_t* const IR_list, SSATabl
         {
             return result;
         }
+
+        LOG (kDebug, "Vars in function = %lu\n", cnt_loc_vars);
 
         SSATable_t local_table = {};
         local_table.counter = 0;
