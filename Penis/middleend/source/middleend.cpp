@@ -64,7 +64,7 @@ enum IRError OptimizeIR (FILE* const input_file, FILE* const output_file)
 
         new_list_elem_num = IR_list.counter;
 
-        if (new_list_elem_num < old_list_elem_num)
+        if (new_list_elem_num != old_list_elem_num)
         {
             optimized = true;
         }
@@ -81,10 +81,27 @@ enum IRError OptimizeIR (FILE* const input_file, FILE* const output_file)
 
         new_list_elem_num = IR_list.counter;
 
-        if (new_list_elem_num < old_list_elem_num)
+        if (new_list_elem_num != old_list_elem_num)
         {
             optimized = true;
         }
+
+//         old_list_elem_num = IR_list.counter;
+//         result = FindSimilarExpression (&IR_list);
+//         if (result != kDoneIR)
+//         {
+//             ListDtor (&IR_list);
+//             return result;
+//         }
+//
+//         LOG (kDebug, "The IR was optimized by killing unused vars\n");
+//
+//         new_list_elem_num = IR_list.counter;
+//
+//         if (new_list_elem_num != old_list_elem_num)
+//         {
+//             optimized = true;
+//         }
     }
 
     result = WriteIRPYAM (&IR_list, output_file);
