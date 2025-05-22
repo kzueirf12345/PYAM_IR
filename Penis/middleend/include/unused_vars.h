@@ -9,7 +9,7 @@ static const size_t kStartListNumberElem = 10;
 typedef struct VarUsage
 {
     size_t var_index;
-    size_t instruction_decl_index;
+    list_t instruction_decl_index;
     size_t usage_counter;
 } VarUsage_t;
 
