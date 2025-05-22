@@ -62,15 +62,6 @@ enum IRError OptimizeIR (FILE* const input_file, FILE* const output_file)
 
         LOG (kDebug, "The IR was optimized by dead code elimination\n");
 
-        result = WriteIRPYAM (&IR_list, output_file);
-        if (result != kDoneIR)
-        {
-            ListDtor (&IR_list);
-            return result;
-        }
-
-        fprintf (output_file, "\n\n\t\t\t\t\trofl\n\n");
-
         new_list_elem_num = IR_list.counter;
 
         if (new_list_elem_num < old_list_elem_num)
@@ -93,12 +84,6 @@ enum IRError OptimizeIR (FILE* const input_file, FILE* const output_file)
         if (new_list_elem_num < old_list_elem_num)
         {
             optimized = true;
-        }
-        result = WriteIRPYAM (&IR_list, output_file);
-        if (result != kDoneIR)
-        {
-            ListDtor (&IR_list);
-            return result;
         }
     }
 
