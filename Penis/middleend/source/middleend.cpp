@@ -7,6 +7,7 @@
 
 #include "dead_code_elim.h"
 #include "subexpression.h"
+#include "unused_vars.h"
 
 #include "list.h"
 #include "list_construction.h"
@@ -43,14 +44,63 @@ enum IRError OptimizeIR (FILE* const input_file, FILE* const output_file)
 
     LOG (kDebug, "The IR was read to list\n");
 
-    result = DeadCodeElimination (&IR_list);
-    if (result != kDoneIR)
-    {
-        ListDtor (&IR_list);
-        return result;
-    }
+    size_t old_list_elem_num = IR_list.counter;
+    size_t new_list_elem_num = IR_list.counter;
+    bool optimized = true;
 
-    LOG (kDebug, "The IR was optimized by dead code elimination\n");
+    while (optimized)
+    {
+        optimized = false;
+
+        old_list_elem_num = IR_list.counter;
+        result = DeadCodeElimination (&IR_list);
+        if (result != kDoneIR)
+        {
+            ListDtor (&IR_list);
+            return result;
+        }
+
+        LOG (kDebug, "The IR was optimized by dead code elimination\n");
+
+        result = WriteIRPYAM (&IR_list, output_file);
+        if (result != kDoneIR)
+        {
+            ListDtor (&IR_list);
+            return result;
+        }
+
+        fprintf (output_file, "\n\n\t\t\t\t\trofl\n\n");
+
+        new_list_elem_num = IR_list.counter;
+
+        if (new_list_elem_num < old_list_elem_num)
+        {
+            optimized = true;
+        }
+
+        old_list_elem_num = IR_list.counter;
+        result = KillUnusedVars (&IR_list);
+        if (result != kDoneIR)
+        {
+            ListDtor (&IR_list);
+            return result;
+        }
+
+        LOG (kDebug, "The IR was optimized by killing unused vars\n");
+
+        new_list_elem_num = IR_list.counter;
+
+        if (new_list_elem_num < old_list_elem_num)
+        {
+            optimized = true;
+        }
+        result = WriteIRPYAM (&IR_list, output_file);
+        if (result != kDoneIR)
+        {
+            ListDtor (&IR_list);
+            return result;
+        }
+    }
 
     result = WriteIRPYAM (&IR_list, output_file);
     ListDtor (&IR_list);

@@ -28,6 +28,14 @@ const char* EnumErrorToStr (const enum IRError error)
 
         CASE (kInvalidAssigningIR);
         CASE (kCantIdentifyLabelIR);
+        CASE (kInvalidOrderListIR);
+
+        CASE (kCantCreateGlobalVarsTable);
+        CASE (kUndefinedVarIR);
+        CASE (kCantCreateLocalVarsTable);
+        CASE (kInvalidIRStruct);
+
+        CASE (kEmptyProgramIR);
 
         default:
             return "Invalid enum element";

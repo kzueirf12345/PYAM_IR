@@ -104,10 +104,10 @@ enum IRError WriteIRPYAM (const list_t* const list, FILE* const output_file)
             {
                 return kInvalidKeyWordIR;
             }
-            if (result != kDoneIR)
-            {
-                return result;
-            }
+        }
+        if (result != kDoneIR)
+        {
+            return result;
         }
         index = NextIndex (list, index);
     }

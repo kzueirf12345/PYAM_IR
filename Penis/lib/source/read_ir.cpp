@@ -156,6 +156,7 @@ static enum IRError CallFuncIR (current_position_t* const cur_pos, list_t* const
     IRInstruction_t list_elem = {};
     list_elem.type = IR_FUNCTION_CALL_INDEX;
     list_elem.res_type = kTmp;
+    list_elem.type_1 = list_elem.type_2 = kNone;
 
     sscanf (cur_pos->buffer + cur_pos->read_letters, TMP_PREFIX "%lu", &list_elem.res_index);
     cur_pos->read_letters += strlen (TMP_PREFIX);
@@ -203,6 +204,7 @@ static enum IRError FuncBodyIR (current_position_t* const cur_pos, list_t* const
 
     IRInstruction_t list_elem = {};
     list_elem.type   = IR_FUNCTION_BODY_INDEX;
+    list_elem.res_type = kNone;
     list_elem.type_1 = kNum;
     list_elem.type_2 = kNum;
 
@@ -262,7 +264,8 @@ static enum IRError CondJumpIR (current_position_t* const cur_pos, list_t* const
                  *(cur_pos->buffer + cur_pos->read_letters), cur_pos->read_letters);
 
     IRInstruction_t list_elem = {};
-    list_elem.type   = IR_CONDITIONAL_JUMP_INDEX;
+    list_elem.type = IR_CONDITIONAL_JUMP_INDEX;
+    list_elem.res_type = list_elem.type_1 = list_elem.type_2 = kNone;
 
     char label_name [kMaxWordLenIR] = "";
     sscanf (cur_pos->buffer + cur_pos->read_letters, "%[^,^ ^\n^\t^\r]", label_name);
@@ -352,6 +355,7 @@ static enum IRError AssignVarIR (current_position_t* const cur_pos, list_t* cons
 
     IRInstruction_t list_elem = {};
     list_elem.type = IR_ASSIGNMENT_INDEX;
+    list_elem.res_type = list_elem.type_1 = list_elem.type_2 = kNone;
 
     long long var_index = 0;
     sscanf (cur_pos->buffer + cur_pos->read_letters, "%lld", &var_index);
@@ -442,6 +446,7 @@ static enum IRError AssignTmpIR (current_position_t* const cur_pos, list_t* cons
     IRInstruction_t list_elem = {};
     list_elem.type   = IR_ASSIGNMENT_INDEX;
     list_elem.res_type = kTmp;
+    list_elem.type_1 = list_elem.type_2 = kNone;
 
     sscanf (cur_pos->buffer + cur_pos->read_letters, "%lu", &(list_elem.res_index));
     SkipNumber (cur_pos->buffer, &(cur_pos->read_letters));
@@ -557,6 +562,7 @@ static enum IRError AssignArgIR (current_position_t* const cur_pos, list_t* cons
     list_elem.type     = IR_ASSIGNMENT_INDEX;
     list_elem.res_type = kArg;
     list_elem.type_1   = kTmp;
+    list_elem.type_2   = kNone;
 
     sscanf (cur_pos->buffer + cur_pos->read_letters, "%lu", &(list_elem.res_index));
     SkipNumber (cur_pos->buffer, &(cur_pos->read_letters));
@@ -677,6 +683,7 @@ static enum IRError LabelIR (current_position_t* const cur_pos, list_t* const li
 
     IRInstruction_t list_elem = {};
     list_elem.type   = IR_LABEL_INDEX;
+    list_elem.res_type = list_elem.type_1 = list_elem.type_2 = kNone;
 
     char label_name [kMaxWordLenIR] = "";
     sscanf (cur_pos->buffer + cur_pos->read_letters, "%[^,^ ^\n^\t^\r^)]", label_name);
@@ -716,6 +723,7 @@ static enum IRError ReturnIR (current_position_t* const cur_pos, list_t* const l
     IRInstruction_t list_elem = {};
     list_elem.type     = IR_RETURN_INDEX;
     list_elem.res_type = kTmp;
+    list_elem.type_1 = list_elem.type_2 = kNone;
 
     sscanf (cur_pos->buffer + cur_pos->read_letters, TMP_PREFIX "%lu", &(list_elem.res_index));
     cur_pos->read_letters += strlen (TMP_PREFIX);
@@ -752,6 +760,7 @@ static enum IRError SysCallIR (current_position_t* const cur_pos, list_t* const 
     IRInstruction_t list_elem = {};
     list_elem.type   = IR_SYSTEM_FUNCTION_CALL_INDEX;
     list_elem.res_type = kTmp;
+    list_elem.type_1 = list_elem.type_2 = kNone;
 
     sscanf (cur_pos->buffer + cur_pos->read_letters, TMP_PREFIX "%lu", &(list_elem.res_index));
     cur_pos->read_letters += strlen (TMP_PREFIX);
@@ -799,6 +808,7 @@ static enum IRError GlobalVarsNumIR  (current_position_t* const cur_pos, list_t*
     IRInstruction_t list_elem = {};
     list_elem.type   = IR_GLOBAL_VARS_NUM_INDEX;
     list_elem.type_1 = kNum;
+    list_elem.res_type = list_elem.type_2 = kNone;
 
     size_t cnt_glob_vars = 0;
     sscanf (cur_pos->buffer + cur_pos->read_letters, "%lu", &cnt_glob_vars);

@@ -27,6 +27,7 @@ enum IROperandType
     kGlobalVar = 2,
     kArg       = 3,
     kNum       = 4,
+    kNone      = 5,
 };
 
 typedef struct IRInstruction

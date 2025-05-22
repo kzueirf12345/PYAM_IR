@@ -5,6 +5,7 @@ add_executable(middleend
     source/middleend.cpp
     source/dead_code_elim.cpp
     source/subexpression.cpp
+    source/unused_vars.cpp
     source/error_handler.cpp
 
     source/parse_flags_lang.cpp

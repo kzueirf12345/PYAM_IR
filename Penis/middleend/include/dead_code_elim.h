@@ -11,6 +11,7 @@ typedef struct CntrlFlowGraphNode
     size_t          dflt_branch_index;
     size_t          subbranch_index;
     bool            controlled;
+    size_t          instruction_index;
 } CntrlFlowGraphNode_t;
 
 typedef struct LabelLocation

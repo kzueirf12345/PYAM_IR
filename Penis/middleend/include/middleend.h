@@ -23,6 +23,12 @@ enum IRError
     kInvalidAssigningIR         = 11,
     kCantIdentifyLabelIR        = 12,
     kInvalidOrderListIR         = 13,
+
+    kCantCreateGlobalVarsTable  = 14,
+    kUndefinedVarIR             = 15,
+    kCantCreateLocalVarsTable   = 16,
+    kInvalidIRStruct            = 17,
+    kEmptyProgramIR             = 18,
 };
 
 enum IRError OptimizeIR (FILE* const input_file, FILE* const output_file);
